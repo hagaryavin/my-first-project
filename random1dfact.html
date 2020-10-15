@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div>
+<label id="1d"></label>
+<br>
+<label id="2d"></label>
+<br>
+<label id="3d"></label>
+<br>
+<label id="4d"></label>
+<br>
+<label id="5d"></label>
+<br>
+</div>
+<button id="match" onclick="iFunction()" class="button">click</button>
+<button id="restart" onclick="dFunction()" class="button">refresh</button>
+<script>
+var car1 = "1. niall is blonde";
+var car2= "2. liam likes bears";
+var car3= "3. louis is good at soccer";
+var car4= "4. harry loves tacos";
+var car5= "5. zayn is the worst one";
+var fruits = [car1, car2, car3, car4, car5];
+
+var fruits2 = ["null", "null", "null", "null", "null"];
+
+function contains(a, obj)
+{
+   for (var i = 0; i < a.length; i++)
+   {
+       if (a[i] === obj)
+       {
+           return true;
+       }
+   }
+   return false;
+}
+
+function iFunction()
+{
+
+   var rl=Math.floor(Math.random() * fruits.length);
+   var rl2=Math.floor(Math.random() * fruits2.length);
+   var i;
+   var j;
+   while(contains(fruits2,"null")==true)
+   {
+   		for(i=0;i<fruits2.length;i++)
+   		{
+   	
+   		if(fruits2[i]=="null")
+       		{	
+           		while(contains(fruits2,fruits[rl])!=true)
+               		{
+                   		fruits2[i]=fruits[rl];
+                  		rl=Math.floor(Math.random() * fruits.length);
+              		}
+
+          }
+          rl=Math.floor(Math.random() * fruits.length);
+   		}
+   }
+
+	document.getElementById("1d").innerHTML = "FACT: "+fruits2[0];
+	document.getElementById("2d").innerHTML = "FACT: "+fruits2[1];
+	document.getElementById("3d").innerHTML = "FACT: "+fruits2[2];
+	document.getElementById("4d").innerHTML = "FACT: "+fruits2[3];
+	document.getElementById("5d").innerHTML = "FACT: "+fruits2[4];
+
+}
+
+function dFunction()
+{
+for(i=0;i<fruits2.length;i++)
+   	{
+       	fruits2[i]="null";
+       }
+}
+</script>
+
+</body>
+</html>
